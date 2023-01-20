@@ -179,9 +179,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps top 30
+# gaps top 25
 gaps inner 15
-gaps bottom 32
 
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
@@ -192,6 +191,8 @@ bindsym $mod+Print exec flameshot gui
 bindsym Print exec flameshot screen
 bindsym $mod+Y exec killall cmus
 bindsym $mod+space exec rofi -show drun
+bindsym $mod+T exec ~/.config/polybar/scripts/toggle.sh
+bindsym $mod+C exec rofi -show calc
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Blender"] floating disable
@@ -205,8 +206,9 @@ for_window [class="discord"] floating enable
 for_window [class="vokoscreenNG"] floating enable
 for_window [class="Godot"] floating enable
 
-exec --no-startup-id picom
+# exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
-exec --no-startup-id /home/mahiro/.config/polybar/launch.sh
+exec_always --no-startup-id /home/mahiro/.config/polybar/launch.sh
 exec --no-startup-id fcitx
+exec --no-startup-id setxkbmap -layout us
